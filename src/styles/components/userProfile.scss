@@ -1,0 +1,11 @@
+.flexbox-container-user-profile {
+    display: flex;
+    width: 50%;
+
+    .user-profile-container {
+        padding: 10px;
+        width: 100%;
+        text-align: center;
+    }
+}
+

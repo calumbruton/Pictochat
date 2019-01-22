@@ -1,5 +1,7 @@
 import React, { Component } from 'react'
-import NavigationBar from './navigationBar';
+import NavigationBar from '../components/navigationBar';
+import FriendsList from '../components/friendsList';
+import UserProfile from '../components/userProfile';
 
 class HomePage extends Component {
 
@@ -8,8 +10,11 @@ class HomePage extends Component {
             <div>
                 <NavigationBar/>
                 <div className="container">
-                    {/* Put chat list here */}
-                    <p>hi</p>
+                    <div className = "flexbox-container">
+                           {/* Put chat list here */}
+                           <FriendsList/>
+                           <UserProfile />             
+                    </div>
                 </div>
             </div>
         )
