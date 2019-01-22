@@ -1,1 +1,5 @@
-An application that allows users to chat through pictures
+#Running the Application
+
+cd to frontend directory
+npm install 
+npm start
