@@ -1,0 +1,38 @@
+.friendRow-container{
+    display: flex;
+    flex-direction: row;
+    padding: 10px;
+    
+    .friend-info {
+        display: flex;
+        width: 28%;
+        padding-right: 40px;
+
+        .friend-name {
+            padding-top: 10px;
+            padding-left: 20px;
+            font-size: 20px;
+            color: rgb(87, 85, 85);
+        }
+    }
+
+    .chat-preview {
+        display: flex;
+        width: 100%;
+        padding-top: 10px;
+        color: rgb(128, 128, 128);
+
+        .text-preview {
+            width: 80%;
+        }
+
+        .picture-preview {
+            display:table-cell; vertical-align:middle; text-align:center
+        }
+    }
+
+}
+
+.pressed { 
+    background-color: rgb(252, 249, 249);
+}

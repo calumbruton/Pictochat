@@ -1,4 +1,25 @@
 .navbar {
     background-color: rgb(69, 67, 168);
     height: 70px;
+
+    .logout-button {
+        background-color: rgb(69, 67, 168);
+        border: 2px white solid;
+        border-radius: 8px;
+        color:white;
+        height: 40px;
+        width: 80px;
+        background-repeat: no-repeat;
+        cursor: pointer;
+
+
+        &:focus {
+            outline: none;
+        }
+
+        &:active {
+            background-color: rgb(124, 123, 202);
+        }
+
+    }
 }

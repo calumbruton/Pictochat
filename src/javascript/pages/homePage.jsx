@@ -2,6 +2,7 @@ import React, { Component } from 'react'
 import NavigationBar from '../components/navigationBar';
 import FriendsList from '../components/friendsList';
 import UserProfile from '../components/userProfile';
+import ChatBox from '../components/chatBox'
 
 class HomePage extends Component {
 
@@ -12,8 +13,11 @@ class HomePage extends Component {
                 <div className="container">
                     <div className = "flexbox-container">
                            {/* Put chat list here */}
-                           <FriendsList/>
+                           <ChatBox />
                            <UserProfile />             
+                    </div>
+                    <div className = "flexbox-container">
+                        <FriendsList/>
                     </div>
                 </div>
             </div>
