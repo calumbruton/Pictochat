@@ -27,10 +27,11 @@ class DrawableCanvas extends Component {
     }
   }
 
-  static getDefaultStyle() {
+  static getDefaultStyle(color) {
+    console.log(color)
     return {
-      brushColor: '#FFFF00',
-      lineWidth: 4,
+      brushColor: "#18FF33",
+      lineWidth: 8,
       cursor: 'pointer',
       canvasStyle: {
         backgroundColor: '#00FFDC'
@@ -115,8 +116,8 @@ class DrawableCanvas extends Component {
     this.state.context.clearRect(0, 0, width, height);
   }
 
-  canvasStyle(){
-    const defaults = DrawableCanvas.getDefaultStyle();
+  canvasStyle(color){
+    const defaults = DrawableCanvas.getDefaultStyle(color);
     const custom = this.props.canvasStyle;
 
     return assign({}, defaults, custom);
@@ -124,7 +125,7 @@ class DrawableCanvas extends Component {
 
   render() {
     return (
-      <canvas style = {this.canvasStyle()}
+      <canvas style = {this.canvasStyle(this.props.color)}
         onMouseDown = {this.handleOnMouseDown.bind(this)}
         onTouchStart = {this.handleOnTouchStart.bind(this)}
         onMouseMove = {this.handleOnMouseMove.bind(this)}

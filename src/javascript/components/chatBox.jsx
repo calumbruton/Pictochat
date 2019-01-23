@@ -16,16 +16,21 @@ class ChatBox extends Component {
           this.child.current.resetCanvas();
       }
 
+      handleColorChange(color) {
+        console.log(color);
+        this.setState( {currentColor: color} )
+      }
+
     render() {
         return (
             <div className = "chatbox-container">
                 <div className = "canvas-container">
-                    <DrawableCanvas ref={this.child}/>
+                    <DrawableCanvas ref={this.child} color={this.state.currentColor}/>
                 </div>
                 <div className = "buttons-container">
                     <button className = "clear-canvas-button" onClick={() => this.handleClearOnClick()}>Clear</button>
                     <button className = "send-button">Send</button>
-                    <div className="center-button"><CircularColor size={50} onChange={this.handleColorChange}/></div>
+                    <div className="center-button"><CircularColor size={50} onChange={(color) => this.handleColorChange(color)}/></div>
                 </div>
             </div>
         )
