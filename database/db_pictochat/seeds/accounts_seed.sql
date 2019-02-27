@@ -1,0 +1,1 @@
+INSERT INTO pictochat.test(email, password) VALUES ('Joe@gmail.com', 'password'); 

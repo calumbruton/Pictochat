@@ -2,7 +2,7 @@ const Pool = require('pg').Pool
 const pool = new Pool({
   user: 'me',
   host: 'localhost',
-  database: 'pictochatapi',
+  database: 'pictochatdb',
   password: 'password',
   port: 5432,
 })
