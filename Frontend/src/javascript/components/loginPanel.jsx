@@ -14,14 +14,24 @@ class LoginPanel extends Component {
     
     onFormSubmit() {
         this.callApi()
-            .then(res => alert(JSON.stringify(this.state, null, '  ')))
+            .then(res => {
+              console.log(res[0].count)
+              if(parseInt(res[0].count) === 1){
+                //Route to other page
+                console.log("Route to landing page!")
+              }
+              else {
+                //Don't do anything
+                console.log("Not in the database")
+              }
+            })
             .catch(err => console.log(err))
       }
 
       callApi = async () => {
-        const response = await fetch('/users');
+        const response = await fetch(`/users/${this.state.email}/${this.state.password}`);
         const body = await response.json();
-        alert(JSON.stringify(body, null, '  '))
+        console.log(response)
         if (response.status !== 200) throw Error(body.message);
         return body;
       };

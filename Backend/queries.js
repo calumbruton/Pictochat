@@ -8,7 +8,7 @@ const pool = new Pool({
 })
 
 const getUsers = (request, response) => {
-    pool.query('SELECT * FROM accounts ORDER BY email ASC', (error, results) => {
+    pool.query('SELECT * FROM pictochat.accounts ORDER BY email ASC', (error, results) => {
       if (error) {
         throw error
       }
@@ -16,12 +16,10 @@ const getUsers = (request, response) => {
     })
   }
 
-const getUserById = (request, response) => {
-    console.log(request.params)
+const getUserByEmail = (request, response) => {
     const email = request.params.email
-    console.log(email)
   
-    pool.query('SELECT * FROM accounts WHERE email = $1', [email], (error, results) => {
+    pool.query('SELECT * FROM pictochat.accounts WHERE email = $1', [email], (error, results) => {
       if (error) {
         throw error
       }
@@ -29,14 +27,30 @@ const getUserById = (request, response) => {
     })
 }
 
+
+const authenticateUser = (request, response) => {
+  const email = request.params.email
+  const password = request.params.password
+  console.log("here", email, password)
+
+  pool.query('SELECT COUNT(*) FROM pictochat.accounts WHERE email = $1 AND password = $2', [email, password], (error, results) => {
+    if (error) {
+      throw error
+    }
+    response.status(200).json(results.rows)
+  })
+}
+
+
+
 const createUser = (request, response) => {
     const { email, password } = request.body
   
-    pool.query('INSERT INTO accounts (email, password) VALUES ($1, $2)', [email, password], (error, results) => {
+    pool.query('INSERT INTO pictochat.accounts (email, password) VALUES ($1, $2)', [email, password], (error, results) => {
       if (error) {
         throw error
       }
-      response.status(201).send(`User added with email: ${result.insertEmail}`)
+      response.status(201).send(`User added with email: ${results.insertEmail}`)
     })
 }
 
@@ -45,7 +59,7 @@ const updateUser = (request, response) => {
     const { password } = request.body
   
     pool.query(
-      'UPDATE accounts SET email = $1, password = $2 WHERE email = $3',
+      'UPDATE pictochat.accounts SET email = $1, password = $2 WHERE email = $3',
       [email, password],
       (error, results) => {
         if (error) {
@@ -59,7 +73,7 @@ const updateUser = (request, response) => {
 const deleteUser = (request, response) => {
     const email = request.params.email
   
-    pool.query('DELETE FROM accounts WHERE email = $1', [email], (error, results) => {
+    pool.query('DELETE FROM pictochat.accounts WHERE email = $1', [email], (error, results) => {
       if (error) {
         throw error
       }
@@ -69,8 +83,9 @@ const deleteUser = (request, response) => {
 
 module.exports = {
     getUsers,
-    getUserById,
+    getUserByEmail,
     createUser,
     updateUser,
     deleteUser,
+    authenticateUser,
 }
