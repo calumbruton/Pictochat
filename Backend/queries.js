@@ -8,7 +8,7 @@ const pool = new Pool({
 })
 
 const getUsers = (request, response) => {
-    pool.query('SELECT * FROM users ORDER BY email ASC', (error, results) => {
+    pool.query('SELECT * FROM accounts ORDER BY email ASC', (error, results) => {
       if (error) {
         throw error
       }
@@ -21,7 +21,7 @@ const getUserById = (request, response) => {
     const email = request.params.email
     console.log(email)
   
-    pool.query('SELECT * FROM users WHERE email = $1', [email], (error, results) => {
+    pool.query('SELECT * FROM accounts WHERE email = $1', [email], (error, results) => {
       if (error) {
         throw error
       }
@@ -32,7 +32,7 @@ const getUserById = (request, response) => {
 const createUser = (request, response) => {
     const { email, password } = request.body
   
-    pool.query('INSERT INTO users (email, password) VALUES ($1, $2)', [email, password], (error, results) => {
+    pool.query('INSERT INTO accounts (email, password) VALUES ($1, $2)', [email, password], (error, results) => {
       if (error) {
         throw error
       }
@@ -45,7 +45,7 @@ const updateUser = (request, response) => {
     const { password } = request.body
   
     pool.query(
-      'UPDATE users SET email = $1, password = $2 WHERE email = $3',
+      'UPDATE accounts SET email = $1, password = $2 WHERE email = $3',
       [email, password],
       (error, results) => {
         if (error) {
@@ -59,7 +59,7 @@ const updateUser = (request, response) => {
 const deleteUser = (request, response) => {
     const email = request.params.email
   
-    pool.query('DELETE FROM users WHERE email = $1', [email], (error, results) => {
+    pool.query('DELETE FROM accounts WHERE email = $1', [email], (error, results) => {
       if (error) {
         throw error
       }
