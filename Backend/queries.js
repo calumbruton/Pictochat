@@ -4,7 +4,7 @@ const pool = new Pool({
   host: 'localhost',
   database: 'pictochatdb',
   password: 'password',
-  port: 5432,
+  port: 5434,
 })
 
 const getUsers = (request, response) => {

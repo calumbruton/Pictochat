@@ -1,14 +1,20 @@
 version: "3"
 
 services:
-  pictochatdb-db:
+  pictochatdb:
     restart: always
     image: postgres:11.0
     ports:
-      - "5432:5432"
+      - "5434:5432"
     environment:
       - POSTGRES_USER=me
       - POSTGRES_PASSWORD=password
-      - POSTGRES_DB=pictochatdb        
+      - POSTGRES_DB=pictochatdb
     # volumes:
     #   - ./docker-volumes/pictochatdb/data:/var/lib/postgresql/data
+
+
+# $ docker run -d -p 5432:5432 --name container-name -e POSTGRES_PASSWORD=mysecretpassword postgres
+# Maps as such: -p <host_port>:<container_port>
+# $ docker exec -it container-name bash
+# $ psql -U postgres databaseName
