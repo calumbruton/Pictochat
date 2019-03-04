@@ -6,11 +6,11 @@
 
 
 
-TODO:
+# TODO:
 * get color from color picker and pass to canvas
 * Check why canvas hand isn't exactly aligned with drawing
-* make a quick login page
-* Implement Routes
+* Add More Routes to back-end
+* Check if login page route now works
 
 
 The local environment allows users to develop the application within
@@ -18,22 +18,22 @@ a set of docker containers that closely match the production environment
 while still allowing for easy development and debugging.
 
 
-##Pre-reqs
+## Pre-reqs
 Install Flyway for database migrations.
 	MACOS: brew install flyway
 
 Install Docker to run postgres image
 
-##Local
+## Local
 
-###Setup
+### Setup
 Run the local docker environment:
 $ cd docker-envs/local && docker-compose up
 
 Run the database migration scripts:
 $ scripts/migrate_all_local.sh
 
-##Databases
+## Databases
 
 Host, Port, Datavase, Username, password
 localhost	5432	pictochatdb		me 		password
