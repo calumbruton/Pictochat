@@ -19,16 +19,17 @@ while still allowing for easy development and debugging.
 
 
 ## Pre-reqs
-Install Flyway for database migrations.
+* Install Flyway for database migrations.
 	MACOS: brew install flyway
+	or: https://flywaydb.org/download/ 
 
-Install Docker to run postgres image
+* Install Docker to run postgres image
 
 ## Local
 
 ### Setup
-Run the local docker environment:
-$ cd docker-envs/local && docker-compose up
+Run the local docker environment by going to the project directory and running:
+`$ cd docker-envs/local && docker-compose up`
 
 Run the database migration scripts:
 $ scripts/migrate_all_local.sh
