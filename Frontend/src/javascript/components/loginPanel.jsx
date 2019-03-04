@@ -1,6 +1,8 @@
 import React, { Component } from 'react'
 import { Button, Form, FormGroup, Label, Input, FormText } from 'reactstrap';
+import { Redirect } from "react-router-dom";
 
+import HomePage from '../pages/homePage';
 
 class LoginPanel extends Component {
     constructor() {
@@ -8,7 +10,8 @@ class LoginPanel extends Component {
         this.onFormSubmit = this.onFormSubmit.bind(this);
         this.state = {
           password: '',
-          email: ''
+          email: '',
+          redirectToHomePage: false
         };
       }
     
@@ -18,10 +21,11 @@ class LoginPanel extends Component {
               console.log(res[0].count)
               if(parseInt(res[0].count) === 1){
                 //Route to other page
+                this.setState({redirectToHomePage: true})
                 console.log("Route to landing page!")
               }
               else {
-                //Don't do anything
+                //Show modal on landing page passed from props
                 console.log("Not in the database")
               }
             })
@@ -38,6 +42,7 @@ class LoginPanel extends Component {
     
       render() {
         return (
+          this.state.redirectToHomePage ? <Redirect to={{pathname: "/home"}} /> : 
           <div>
             <Form onSubmit={this.onFormSubmit}>
               <FormGroup>
