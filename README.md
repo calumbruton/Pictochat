@@ -20,8 +20,8 @@ while still allowing for easy development and debugging.
 
 ## Pre-reqs
 * Install Flyway for database migrations.
-	MACOS: brew install flyway
-	or: https://flywaydb.org/download/ 
+	* MACOS: `brew install flyway`
+	* or: https://flywaydb.org/download/ 
 
 * Install Docker to run postgres image
 
