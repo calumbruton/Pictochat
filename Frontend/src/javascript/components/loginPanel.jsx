@@ -18,6 +18,7 @@ class LoginPanel extends Component {
     onFormSubmit() {
         this.callApi()
             .then(res => {
+              console.log("waited")
               console.log(res[0].count)
               if(parseInt(res[0].count) === 1){
                 //Route to other page
@@ -33,11 +34,16 @@ class LoginPanel extends Component {
       }
 
       callApi = async () => {
-        const response = await fetch(`/users/${this.state.email}/${this.state.password}`);
-        const body = await response.json();
-        console.log(response)
-        if (response.status !== 200) throw Error(body.message);
-        return body;
+        await fetch(`/users/${this.state.email}/${this.state.password}`)
+          .then(response => {
+            console.log("here")
+            const body = response.json();
+            console.log(response, body)
+            return body;
+          })
+          .catch(err => {
+            throw Error(err);
+        })
       };
     
       render() {
