@@ -4,6 +4,7 @@
     "password": "password",
     "database": "pictochatdb",
     "host": "localhost",
+    "port": 5434,
     "dialect": "postgres"
   },
   "test": {
