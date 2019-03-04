@@ -28,11 +28,11 @@ while still allowing for easy development and debugging.
 ## Local
 
 ### Setup
-Run the local docker environment by going to the project directory and running:
-`$ cd docker-envs/local && docker-compose up`
+Run the local docker environment by going to the project root directory and running:
+```$ cd docker-envs/local && docker-compose up```
 
-Run the database migration scripts:
-$ scripts/migrate_all_local.sh
+Run the database migration scripts by going to the project root directory and running:
+```$ scripts/migrate_all_local.sh```
 
 ## Database Configurations
 
