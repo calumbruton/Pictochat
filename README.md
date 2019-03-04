@@ -2,13 +2,13 @@
 
 After installing the pre-reqs and following the local setup instructions listed below: 
 
-* Open a terminal and navigate to the ~Frontend~ directory then run:
+* Open a terminal and navigate to the *Frontend* directory then run:
 ```
 npm install 
 npm start
 ```
 
-* Open another terminal and navigate to the ~Backend~ directory then run: 
+* Open another terminal and navigate to the *Backend* directory then run: 
 ```
 npm install 
 npm start
