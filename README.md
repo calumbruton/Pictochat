@@ -1,3 +1,12 @@
+
+# TODO:
+* get color from color picker and pass to canvas
+* Check why canvas hand isn't exactly aligned with drawing
+* Add More Routes to back-end
+* Check if login page route now works
+
+
+
 # Running the Application
 
 After installing the pre-reqs and following the local setup instructions listed below: 
@@ -14,20 +23,7 @@ npm install
 npm start
 ```
 
-
-
-
-# TODO:
-* get color from color picker and pass to canvas
-* Check why canvas hand isn't exactly aligned with drawing
-* Add More Routes to back-end
-* Check if login page route now works
-
-
-The local environment allows users to develop the application within
-a set of docker containers that closely match the production environment
-while still allowing for easy development and debugging.
-
+## Local
 
 ## Pre-reqs
 * Install Flyway for database migrations.
@@ -35,8 +31,6 @@ while still allowing for easy development and debugging.
 	* or: https://flywaydb.org/download/ 
 
 * Install Docker to run postgres image
-
-## Local
 
 ### Setup
 Run the local docker environment by going to the project root directory and running:
