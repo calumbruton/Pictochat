@@ -33,7 +33,9 @@ $ cd docker-envs/local && docker-compose up
 Run the database migration scripts:
 $ scripts/migrate_all_local.sh
 
-## Databases
+## Database Configurations
 
-Host, Port, Datavase, Username, password
-localhost	5432	pictochatdb		me 		password
+
+| Host  |  Port | Database  | Username  | Password  |
+|---|---|---|---|---|
+| localhost  | 5434  | pictochatdb  | me  | password  |
