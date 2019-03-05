@@ -15,12 +15,20 @@ class LoginPanel extends Component {
         };
       }
     
-    onFormSubmit() {
-        this.callApi()
-            .then(res => {
-              console.log("waited")
-              console.log(res[0].count)
-              if(parseInt(res[0].count) === 1){
+    async onFormSubmit() {
+        // this.callApi()
+        fetch(`/users/${this.state.email}/${this.state.password}`)
+          .then(res => {
+            console.log("here")
+            const body = res.json();
+            console.log(body)
+            return body
+          })
+          .then(res => {
+              console.log(res)
+              console.log("waited", res)
+              console.log(res.length)
+              if(parseInt(res.length) === 1){
                 //Route to other page
                 this.setState({redirectToHomePage: true})
                 console.log("Route to landing page!")
@@ -29,17 +37,18 @@ class LoginPanel extends Component {
                 //Show modal on landing page passed from props
                 console.log("Not in the database")
               }
-            })
+              })
             .catch(err => console.log(err))
       }
 
-      callApi = async () => {
+      async callApi() {
+        console.log(`/users/${this.state.email}/${this.state.password}`)
         await fetch(`/users/${this.state.email}/${this.state.password}`)
           .then(response => {
             console.log("here")
             const body = response.json();
             console.log(response, body)
-            return body;
+            return Promise.resolve(body);
           })
           .catch(err => {
             throw Error(err);
@@ -50,7 +59,7 @@ class LoginPanel extends Component {
         return (
           this.state.redirectToHomePage ? <Redirect to={{pathname: "/home"}} /> : 
           <div>
-            <Form onSubmit={this.onFormSubmit}>
+            <Form>
               <FormGroup>
                 <Label>Email:</Label>
                 <Input
@@ -71,8 +80,8 @@ class LoginPanel extends Component {
                   onChange={e => this.setState({ password: e.target.value })}
                 />
               </FormGroup>
-              <Button type="submit" color="primary">Submit</Button>
             </Form>
+            <button className="submit" onClick={() => this.onFormSubmit()}>Submit</button>
           </div>
         );
       }

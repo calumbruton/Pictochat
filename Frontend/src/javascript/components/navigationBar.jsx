@@ -1,6 +1,12 @@
 import React, { Component } from 'react';
+import { Redirect } from "react-router-dom";
 
 class NavigationBar extends Component {
+
+    logout() {
+        console.log("change the page here")
+        //this.props.history.push("/")
+    }
 
     render() {
         return (
@@ -15,7 +21,7 @@ class NavigationBar extends Component {
                         </div>
                     </form>
                     <div>
-                        <button className = "logout-button">
+                        <button className = "logout-button" onClick={() => this.logout()}>
                             logout
                         </button>
                     </div>

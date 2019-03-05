@@ -12,9 +12,8 @@ class HomePage extends Component {
                 <NavigationBar/>
                 <div className="container">
                     <div className = "flexbox-container">
-                           {/* Put chat list here */}
-                           <ChatBox />
-                           <UserProfile />             
+                        <ChatBox />
+                        <UserProfile />             
                     </div>
                     <div className = "flexbox-container">
                         <FriendsList/>
