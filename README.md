@@ -47,3 +47,23 @@ Run the database migration scripts by going to the project root directory and ru
 | Host  |  Port | Database  | Username  | Password  |
 |---|---|---|---|---|
 | localhost  | 5434  | pictochatdb  | me  | password  |
+
+
+## pictochatdb schema
+
+Accounts
+----------
+user_id (PK)
+email
+password
+
+
+Messages
+----------
+MessageID (PK)  
+SenderID (FK)  
+RecipientsID (FK)  
+Subject  
+ImageData
+DateSent  
+
