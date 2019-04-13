@@ -20,7 +20,7 @@ npm start
 * Open another terminal and navigate to the *Backend* directory then run: 
 ```
 npm install 
-npm start
+node index.js
 ```
 
 ## Local
